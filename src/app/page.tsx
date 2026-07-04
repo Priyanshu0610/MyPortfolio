@@ -337,7 +337,7 @@ export default function Home() {
                   className="inline-block text-4xl md:text-[3.5rem] leading-tight text-foreground font-playfair font-black tracking-tight"
                   initial={{ opacity: 0, y: "100%", rotate: 5 }}
                   whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                  transition={{ duration: 0.8, delay: idx * 0.08, ease: [0.33, 1, 0.68, 1] }}
+                  transition={{ duration: 0.4, delay: idx * 0.03, ease: [0.33, 1, 0.68, 1] }}
                   viewport={{ once: true, margin: "-10%" }}
                 >
                   {word}
@@ -353,7 +353,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: "100%" }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10%" }}
-                  transition={{ duration: 0.8, delay: idx * 0.15 + 0.5, ease: [0.33, 1, 0.68, 1] }}
+                  transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.33, 1, 0.68, 1] }}
                   className="hover:text-accent-blue transition-colors cursor-pointer"
                   onMouseEnter={() => setHoveredDiscipline(idx)}
                   onMouseLeave={() => setHoveredDiscipline(null)}

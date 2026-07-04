@@ -23,41 +23,42 @@ export default function Footer() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="min-h-[40vh] md:min-h-[60vh] flex flex-col justify-center items-center text-center bg-[#111] py-24 px-6 mt-16 md:mt-32 relative overflow-hidden group cursor-none"
+      className="min-h-[55vh] lg:min-h-[60vh] flex flex-col justify-center items-center text-center bg-[#d97743] lg:bg-[#111] py-24 px-6 mt-16 lg:mt-32 relative overflow-hidden group cursor-none"
     >
-      {/* BASE LAYER (Barely visible, looks turned off) */}
-      <div className="absolute inset-0 z-0 flex flex-col justify-center items-center text-white/5 pointer-events-none">
-        <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12">
+      {/* BASE LAYER (Fully visible on mobile/tablet, barely visible on desktop) */}
+      <div className="absolute inset-0 z-0 flex flex-col justify-center items-center text-white lg:text-white/5 pointer-events-none">
+        <h2 className="text-5xl sm:text-6xl lg:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
           LET'S TALK
         </h2>
-        <div className="text-xl md:text-2xl font-mono underline">
+        <a href="mailto:ishugood4u@gmail.com" className="text-xl lg:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">
           ishugood4u@gmail.com
-        </div>
+        </a>
       </div>
 
-      {/* REVEAL LAYER (The Spotlight Area) */}
+      {/* REVEAL LAYER (The Spotlight Area - Desktop Only) */}
       <motion.div 
-        className="absolute inset-0 z-10 flex flex-col justify-center items-center bg-[#d97743] text-white pointer-events-none transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="hidden lg:flex absolute inset-0 z-10 flex-col justify-center items-center bg-[#d97743] text-white pointer-events-none"
         style={{
-          '--spotlight': maskImage
-        } as any}
+          maskImage,
+          WebkitMaskImage: maskImage,
+        }}
       >
-        <div className="absolute inset-0 hidden md:block pointer-events-none" style={{ WebkitMaskImage: 'var(--spotlight)', maskImage: 'var(--spotlight)', backgroundColor: '#d97743' }} />
-        <div className="relative z-20 flex flex-col justify-center items-center pointer-events-none w-full h-full md:bg-transparent bg-[#d97743]">
-          <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
-            LET'S TALK
-          </h2>
-          <a href="mailto:ishugood4u@gmail.com" className="text-xl md:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">
-            ishugood4u@gmail.com
-          </a>
-        </div>
+        <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
+          LET'S TALK
+        </h2>
+        <a href="mailto:ishugood4u@gmail.com" className="text-xl md:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">
+          ishugood4u@gmail.com
+        </a>
       </motion.div>
 
-      {/* Footer Details (Always visible but dim) */}
-      <div className="absolute bottom-0 w-full p-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30 z-20 pointer-events-none font-mono">
-        <div className="order-2 md:order-1">© {new Date().getFullYear()} Priyanshu Raj.</div>
-        <div className="order-3 md:order-2 text-white/20">Engineered with <span className="text-white/50">Gemini</span></div>
-        <div className="order-1 md:order-3 flex gap-6 pointer-events-auto">
+      {/* Footer Details (Always visible but dim on desktop) */}
+      <div className="absolute bottom-0 w-full p-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-sm text-white/80 lg:text-white/30 z-20 pointer-events-none font-mono">
+        <div className="order-2 lg:order-1">© {new Date().getFullYear()} Priyanshu Raj.</div>
+        <div className="order-3 lg:order-2 text-white/60 lg:text-white/20">Engineered with <span className="text-white lg:text-white/50">Gemini</span></div>
+        <div className="order-1 lg:order-3 flex gap-6 pointer-events-auto">
           <a href="https://github.com/Priyanshu0610" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
           <a href="https://www.linkedin.com/in/priyanshu-raj-0244bb377/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
         </div>
