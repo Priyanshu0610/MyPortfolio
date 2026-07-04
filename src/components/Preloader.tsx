@@ -85,7 +85,7 @@ export default function Preloader() {
             className="relative z-10 text-[#efebe2]"
           >
             {/* Custom Brutalist PR Seal SVG */}
-            <svg width="250" height="250" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-48 h-48 md:w-[250px] md:h-[250px]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="10" width="180" height="180" stroke="currentColor" strokeWidth="12" />
               <rect x="25" y="25" width="150" height="150" stroke="currentColor" strokeWidth="4" />
               
@@ -114,9 +114,9 @@ export default function Preloader() {
               mass: 1, 
               delay: 0.9 
             }}
-            className="absolute z-20 text-[#ef4444] -translate-x-24 translate-y-20 mix-blend-screen drop-shadow-lg"
+            className="absolute z-20 text-[#ef4444] -translate-x-12 translate-y-16 md:-translate-x-24 md:translate-y-20 mix-blend-screen drop-shadow-lg"
           >
-            <svg width="140" height="140" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-24 h-24 md:w-[140px] md:h-[140px]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Outer dashed circle */}
               <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="4" strokeDasharray="5 3" />
               {/* Inner solid circles */}

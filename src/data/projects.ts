@@ -23,7 +23,7 @@ export const projects: ProjectData[] = [
     slug: "twogoodco",
     title: "Two Good Co",
     category: "Web Design",
-    year: "2026",
+    year: "May 2026",
     serial: "PRJ-001",
     image: "/project img/twogoodco/twogooco.webp",
     gallery: [
@@ -44,7 +44,7 @@ export const projects: ProjectData[] = [
     slug: "shecan",
     title: "She Can Foundation",
     category: "Web Design",
-    year: "2025",
+    year: "June 2026",
     serial: "PRJ-002",
     image: "/project img/shecan/shecanfoundation.webp",
     gallery: [
@@ -65,7 +65,7 @@ export const projects: ProjectData[] = [
     slug: "nexus",
     title: "Nexus",
     category: "Motion & 3D",
-    year: "2025",
+    year: "June 2026",
     serial: "PRJ-003",
     image: "/project img/nexus/nexus.webp",
     gallery: [
@@ -86,7 +86,7 @@ export const projects: ProjectData[] = [
     slug: "nayepank",
     title: "Naye Pankh",
     category: "UI/UX",
-    year: "2024",
+    year: "April 2026",
     serial: "PRJ-004",
     image: "/project img/nayepank/nayepank.webp",
     gallery: [
@@ -107,7 +107,7 @@ export const projects: ProjectData[] = [
     slug: "aiportfolio",
     title: "AI Portfolio",
     category: "Creative Dev",
-    year: "2026",
+    year: "July 2026",
     serial: "PRJ-005",
     image: "/project img/aiportfolio/ai portfolio.webp",
     gallery: [

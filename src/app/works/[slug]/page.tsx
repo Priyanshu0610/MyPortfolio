@@ -29,7 +29,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
             return (
               <span 
                 key={index} 
-                className="inline-block bg-black text-black hover:text-red-600 hover:bg-black/90 transition-all duration-300 px-1 mx-1 cursor-crosshair font-mono font-bold tracking-widest selection:bg-transparent"
+                className="inline-block bg-transparent text-red-600 lg:bg-black lg:text-black hover:text-red-600 lg:hover:bg-black/90 transition-all duration-300 px-1 mx-1 cursor-crosshair font-mono font-bold tracking-widest selection:bg-transparent"
                 title="CLASSIFIED INFO - HOVER TO REVEAL"
               >
                 {secret}
@@ -44,7 +44,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
 
   // Helper to render the red stamp
   const renderApprovalStamp = () => (
-    <div className="absolute -bottom-8 -right-4 md:-right-12 z-[100] pointer-events-none rotate-[-12deg] scale-75 md:scale-100">
+    <div className="absolute -bottom-12 md:-bottom-8 -right-8 md:-right-12 z-[100] pointer-events-none rotate-[-12deg] scale-50 md:scale-100">
        <div className="border-[6px] border-red-600 px-8 py-3 bg-transparent flex flex-col items-center justify-center">
          <span className="font-sans font-black text-6xl text-red-600 tracking-tighter uppercase leading-none drop-shadow-md">
            APPROVED
@@ -70,7 +70,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
              <div className="font-mono text-xs md:text-sm font-bold tracking-[0.2em] text-black/60 dark:text-white/60">
                DEPT. OF INTERNAL ARCHIVES
              </div>
-             <Link href="/works" className="font-mono text-xs font-bold tracking-widest border-b-2 border-black/20 hover:border-black dark:border-white/20 dark:hover:border-white transition-colors uppercase text-black dark:text-white">
+             <Link href="/works" className="no-stamp font-mono text-xs font-bold tracking-widest border-b-2 border-black/20 hover:border-black dark:border-white/20 dark:hover:border-white transition-colors uppercase text-black dark:text-white">
                ← CLOSE DOSSIER
              </Link>
           </div>
@@ -93,7 +93,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
 
         {/* Memo Body */}
         <section className="mb-16">
-          <h1 className="font-playfair font-black text-6xl md:text-8xl uppercase tracking-tighter text-black dark:text-white mb-8 leading-none">
+          <h1 className="font-playfair font-black text-4xl md:text-6xl lg:text-8xl uppercase tracking-tighter text-black dark:text-white mb-8 leading-none">
             {project.title}
           </h1>
 
@@ -126,7 +126,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
             <img 
               src={project.image} 
               alt={project.title} 
-              className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+              className="w-full h-full object-cover lg:grayscale lg:opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
             />
           </div>
 
@@ -145,11 +145,11 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
                     [ EXHIBIT {exhibitLetter}: SUPPLEMENTARY DATA ]
                   </div>
                   
-                  <div className="w-full relative overflow-hidden bg-black mt-6 min-h-[40vh]">
+                  <div className="w-full relative overflow-hidden bg-black mt-6 aspect-video">
                     <img 
                       src={imgUrl} 
                       alt={`${project.title} gallery image ${index + 1}`} 
-                      className="w-full h-full object-contain md:object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                      className="w-full h-full object-cover lg:grayscale lg:opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                     />
                   </div>
                   

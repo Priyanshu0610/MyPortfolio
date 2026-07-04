@@ -23,11 +23,11 @@ export default function Footer() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="min-h-[60vh] flex flex-col justify-center items-center text-center bg-[#111] py-24 px-6 mt-16 md:mt-32 relative overflow-hidden group cursor-none"
+      className="min-h-[40vh] md:min-h-[60vh] flex flex-col justify-center items-center text-center bg-[#111] py-24 px-6 mt-16 md:mt-32 relative overflow-hidden group cursor-none"
     >
       {/* BASE LAYER (Barely visible, looks turned off) */}
       <div className="absolute inset-0 z-0 flex flex-col justify-center items-center text-white/5 pointer-events-none">
-        <h2 className="text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12">
+        <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12">
           LET'S TALK
         </h2>
         <div className="text-xl md:text-2xl font-mono underline">
@@ -46,7 +46,7 @@ export default function Footer() {
           WebkitMaskImage: maskImage,
         }}
       >
-        <h2 className="text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
+        <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
           LET'S TALK
         </h2>
         <a href="mailto:ishugood4u@gmail.com" className="text-xl md:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">

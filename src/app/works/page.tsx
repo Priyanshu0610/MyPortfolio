@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { projects } from "@/data/projects";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function WorksPage() {
   const router = useRouter();
@@ -68,7 +69,9 @@ export default function WorksPage() {
                 <div className="flex justify-between items-start pointer-events-none select-none mb-4 md:mb-6 shrink-0">
                   <div className="flex flex-col">
                     <span className="font-mono text-sm md:text-base font-bold tracking-[0.3em] text-black/40 mb-1 md:mb-2">{project.serial}</span>
-                    <h2 className="font-playfair font-black text-4xl md:text-8xl uppercase tracking-tighter text-black leading-none">{project.title}</h2>
+                    <h3 className="text-4xl sm:text-6xl md:text-8xl font-playfair font-black uppercase tracking-tighter text-black leading-[0.85] w-full break-words">
+                      {project.title}
+                    </h3>
                   </div>
                   
                   {/* Stamp Value */}
@@ -148,8 +151,23 @@ export default function WorksPage() {
       
       {/* Floating UI: Back Button */}
       <div className="fixed top-6 left-6 z-[200] pointer-events-auto">
-         <Link href="/" className="bg-background/80 backdrop-blur-md border border-foreground/10 px-6 py-3 font-mono text-sm font-bold uppercase tracking-widest shadow-xl cursor-none inline-block hover:bg-foreground hover:text-background transition-colors">
-            ← Back to Base
+         <Link href="/" className="no-stamp inline-block">
+            <motion.div 
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-accent-yellow flex flex-col items-center justify-center relative cursor-none group shadow-[0_10px_30px_rgba(0,0,0,0.4)] border-[3px] border-black"
+              initial={{ rotate: -15 }}
+              whileHover={{ rotate: 5, scale: 1.1, y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <div className="absolute inset-2 border-[2px] border-black/30 rounded-full border-dashed group-hover:rotate-[45deg] transition-transform duration-700 pointer-events-none" />
+              <div className="text-center relative z-10">
+                <span className="font-sans font-black text-black uppercase text-xs md:text-sm leading-none tracking-tighter block mb-1">
+                  RETURN
+                </span>
+                <span className="font-playfair font-black italic text-black text-lg md:text-xl leading-none block">
+                  To Base
+                </span>
+              </div>
+            </motion.div>
          </Link>
       </div>
 

@@ -34,8 +34,8 @@ export default function CustomCursor() {
       
       const target = e.target as HTMLElement;
       
-      // Prevent stamping when interacting with the Bubble Menu
-      if (target.closest('.bubble-menu') || target.closest('.bubble-menu-items')) {
+      // Prevent stamping when interacting with the Bubble Menu or navigational buttons
+      if (target.closest('.bubble-menu') || target.closest('.bubble-menu-items') || target.closest('.no-stamp')) {
         return;
       }
       

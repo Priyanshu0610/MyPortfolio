@@ -127,7 +127,7 @@ export default function Home() {
         </motion.div>
         
         <motion.div
-          className="absolute z-10 flex flex-col items-center justify-center font-sans font-black text-6xl md:text-[8rem] lg:text-[11rem] tracking-tighter uppercase leading-none"
+          className="absolute z-10 flex flex-col items-center justify-center font-sans font-black text-5xl sm:text-6xl md:text-[8rem] lg:text-[11rem] tracking-tighter uppercase leading-none"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 4.4, ease: "easeOut" }}
@@ -143,7 +143,7 @@ export default function Home() {
           animate={{ opacity: 0.6, y: -180, scale: 0.5 }}
           transition={{ duration: 1.0, delay: 3.8, ease: "easeInOut" }}
         >
-          <svg width="800" height="300" viewBox="0 0 400 150" fill="none" stroke="#d97743" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="max-w-full">
+          <svg width="800" height="300" viewBox="0 0 400 150" fill="none" stroke="#d97743" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[90vw] max-w-[800px] h-auto">
             <motion.path
               d="M 50 100 Q 150 20 200 50 T 250 50 T 270 55 T 300 50 T 350 55"
               initial={{ pathLength: 0 }}
@@ -303,7 +303,7 @@ export default function Home() {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="w-[280px] h-[280px] md:w-[450px] md:h-[450px] rounded-full border-[1px] border-black/10 dark:border-white/10 flex items-center justify-center relative border-dashed"
+                  className="w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[450px] md:h-[450px] rounded-full border-[1px] border-black/10 dark:border-white/10 flex items-center justify-center relative border-dashed"
                 >
                   <motion.div
                     animate={{ rotate: -360 }}
