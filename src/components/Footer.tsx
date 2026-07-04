@@ -37,21 +37,20 @@ export default function Footer() {
 
       {/* REVEAL LAYER (The Spotlight Area) */}
       <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 z-10 flex flex-col justify-center items-center bg-[#d97743] text-white pointer-events-none"
+        className="absolute inset-0 z-10 flex flex-col justify-center items-center bg-[#d97743] text-white pointer-events-none transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
         style={{
-          maskImage,
-          WebkitMaskImage: maskImage,
-        }}
+          '--spotlight': maskImage
+        } as any}
       >
-        <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
-          LET'S TALK
-        </h2>
-        <a href="mailto:ishugood4u@gmail.com" className="text-xl md:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">
-          ishugood4u@gmail.com
-        </a>
+        <div className="absolute inset-0 hidden md:block pointer-events-none" style={{ WebkitMaskImage: 'var(--spotlight)', maskImage: 'var(--spotlight)', backgroundColor: '#d97743' }} />
+        <div className="relative z-20 flex flex-col justify-center items-center pointer-events-none w-full h-full md:bg-transparent bg-[#d97743]">
+          <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-playfair font-black leading-none mb-12 pointer-events-auto">
+            LET'S TALK
+          </h2>
+          <a href="mailto:ishugood4u@gmail.com" className="text-xl md:text-2xl font-mono font-bold underline hover:text-accent-yellow transition-colors pointer-events-auto">
+            ishugood4u@gmail.com
+          </a>
+        </div>
       </motion.div>
 
       {/* Footer Details (Always visible but dim) */}

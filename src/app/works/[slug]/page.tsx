@@ -118,7 +118,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
 
         {/* Visual Evidence (Primary Image + Stamp conditionally) */}
         <section className="relative mt-24 mb-16 border-[4px] border-black/80 dark:border-white/80 p-4 pb-12 bg-[#f0eee9] dark:bg-[#0a0a0a]">
-          <div className="absolute -top-4 left-4 bg-[#faf9f6] dark:bg-[#111] px-4 font-mono text-sm font-bold tracking-[0.2em] text-black dark:text-white">
+          <div className="absolute -top-4 left-4 max-w-[85%] md:max-w-none overflow-hidden text-ellipsis whitespace-nowrap bg-[#faf9f6] dark:bg-[#111] px-2 md:px-4 font-mono text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.2em] text-black dark:text-white">
             [ EXHIBIT A: PRIMARY DOCUMENTATION ]
           </div>
           
@@ -141,7 +141,7 @@ export default async function ProjectDossier({ params }: { params: Promise<{ slu
               const isLast = index === project.gallery.length - 1;
               return (
                 <div key={index} className="relative border-[4px] border-black/80 dark:border-white/80 p-4 pb-12 bg-[#f0eee9] dark:bg-[#0a0a0a]">
-                  <div className="absolute -top-4 left-4 bg-[#faf9f6] dark:bg-[#111] px-4 font-mono text-sm font-bold tracking-[0.2em] text-black dark:text-white">
+                  <div className="absolute -top-4 left-4 max-w-[85%] md:max-w-none overflow-hidden text-ellipsis whitespace-nowrap bg-[#faf9f6] dark:bg-[#111] px-2 md:px-4 font-mono text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.2em] text-black dark:text-white">
                     [ EXHIBIT {exhibitLetter}: SUPPLEMENTARY DATA ]
                   </div>
                   
