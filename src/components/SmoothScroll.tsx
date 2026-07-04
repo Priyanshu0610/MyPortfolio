@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 // @ts-ignore
 import Lenis from "lenis";
 
@@ -10,9 +9,6 @@ export default function SmoothScroll({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  const [lenisInstance, setLenisInstance] = useState<any>(null);
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -22,8 +18,6 @@ export default function SmoothScroll({
       smoothWheel: true,
       touchMultiplier: 2,
     });
-    
-    setLenisInstance(lenis);
 
     function raf(time: number) {
       lenis.raf(time);
@@ -36,15 +30,6 @@ export default function SmoothScroll({
       lenis.destroy();
     };
   }, []);
-
-  // Watch for route changes and force scroll to top instantly
-  useEffect(() => {
-    if (lenisInstance) {
-      lenisInstance.scrollTo(0, { immediate: true });
-      // Also strictly force window scroll just in case
-      window.scrollTo(0, 0);
-    }
-  }, [pathname, lenisInstance]);
 
   return <>{children}</>;
 }

@@ -650,7 +650,7 @@ export default function Home() {
 
         {/* Massive Peel Sticker (View All Projects) */}
         <div className="mt-16 md:mt-48 flex justify-center w-full relative z-20">
-          <Link href="/works">
+          <a href="/works">
             <motion.div 
               className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-accent-yellow flex flex-col items-center justify-center relative cursor-crosshair group shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[4px] border-black"
               initial={{ rotate: -8 }}
@@ -673,7 +673,7 @@ export default function Home() {
                 </span>
               </div>
             </motion.div>
-          </Link>
+          </a>
         </div>
       </section>
 
