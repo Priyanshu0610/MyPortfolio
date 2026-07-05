@@ -22,7 +22,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 80px 80px;
@@ -30,10 +30,25 @@ body {
   overflow-x: hidden;
 }
 
-/* Force custom cursor globally, overriding any tailwind classes */
+/* 1. Force custom cursor globally (Beats browser UA styles because of !important, but loses to classes because * has 0 specificity) */
 * {
   cursor: none !important;
 }
+
+/* 2. Restore native system cursors exclusively inside no-stamp zones (like the Footer) */
+.no-stamp, .no-stamp * {
+  cursor: default !important;
+}
+.no-stamp a, .no-stamp button, .no-stamp [role="button"], .no-stamp a *, .no-stamp button *, .no-stamp .cursor-pointer {
+  cursor: pointer !important;
+}
+.no-stamp input, .no-stamp textarea {
+  cursor: text !important;
+}
+
+/* 3. Force Tailwind physics classes to win globally */
+.cursor-grab { cursor: grab !important; }
+.cursor-grabbing, .active\:cursor-grabbing:active { cursor: grabbing !important; }
 
 ::selection {
   background-color: var(--foreground);
@@ -41,7 +56,8 @@ body {
 }
 
 /* Lenis smooth scrolling styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 

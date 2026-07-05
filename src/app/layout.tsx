@@ -4,7 +4,6 @@ import "./globals.css";
 import "@/components/BubbleMenu.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import CanvasBackground from "@/components/CanvasBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,7 +63,6 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col font-sans">
         <SmoothScroll>
-          <CanvasBackground />
           <CustomCursor />
           {children}
         </SmoothScroll>

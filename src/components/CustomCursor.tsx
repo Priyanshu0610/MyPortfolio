@@ -14,6 +14,7 @@ interface StampData {
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isPressed, setIsPressed] = useState(false);
+  const [isHoveringGrabbable, setIsHoveringGrabbable] = useState(false);
   const [stamps, setStamps] = useState<StampData[]>([]);
   const [isClient, setIsClient] = useState(false);
 
@@ -25,6 +26,13 @@ export default function CustomCursor() {
         x: e.clientX,
         y: e.clientY,
       });
+
+      const target = e.target as HTMLElement;
+      if (target?.closest && target.closest('.no-stamp')) {
+        setIsHoveringGrabbable(true);
+      } else {
+        setIsHoveringGrabbable(false);
+      }
     };
 
     const handleMouseDown = () => setIsPressed(true);
@@ -118,7 +126,7 @@ export default function CustomCursor() {
 
       {/* The Universal Hand-Stamp Cursor */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999]"
+        className={`fixed top-0 left-0 pointer-events-none z-[9999] transition-opacity duration-200 ${isHoveringGrabbable ? 'opacity-0' : 'opacity-100'}`}
         animate={{
           x: mousePosition.x - 24,
           y: mousePosition.y - 48,

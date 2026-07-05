@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import BubbleMenu from "@/components/BubbleMenu";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import StickerPhysics from "@/components/StickerPhysics";
+import VendingMachineAbout from "@/components/VendingMachineAbout";
 import Link from "next/link";
 
 import { projects } from "@/data/projects";
@@ -100,6 +102,8 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden">
         
+        <StickerPhysics />
+
         {/* Persistent Preloader PR Stamp (Top Left) */}
         <motion.div 
           className="absolute top-6 left-6 md:top-10 md:left-10 z-50 text-foreground group cursor-crosshair pointer-events-auto"
@@ -127,13 +131,21 @@ export default function Home() {
         </motion.div>
         
         <motion.div
-          className="absolute z-10 flex flex-col items-center justify-center font-sans font-black text-5xl sm:text-6xl md:text-[8rem] lg:text-[11rem] tracking-tighter uppercase leading-none"
+          className="absolute z-10 flex flex-col items-center justify-center pointer-events-none"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 4.4, ease: "easeOut" }}
         >
-          <span>Priyanshu</span>
-          <span className="tracking-tight ml-4">Raj</span>
+          <svg viewBox="0 0 1200 400" className="w-[95vw] md:w-[85vw] max-w-[1400px] h-auto drop-shadow-2xl text-foreground">
+            <text 
+              textAnchor="middle" 
+              fill="currentColor" 
+              className="font-sans font-black text-[130px] sm:text-[150px] uppercase tracking-tighter leading-none"
+            >
+              <tspan x="50%" y="160">PRIYANSHU</tspan>
+              <tspan x="50%" y="320">RAJ</tspan>
+            </text>
+          </svg>
         </motion.div>
 
         {/* Signature SVG Mock */}
@@ -189,7 +201,7 @@ export default function Home() {
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
         >
           <svg width="120" height="120" viewBox="-10 -10 130 130" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-2xl">
-            <g fill="#814937">
+            <g fill="#B56345">
               <path transform="translate(1,1)" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
               <path transform="translate(2,2)" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
               <path transform="translate(3,3)" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
@@ -197,7 +209,7 @@ export default function Home() {
               <path transform="translate(5,5)" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
               <path transform="translate(6,6)" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
             </g>
-            <path fill="#A76D5A" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
+            <path fill="#E88D6A" d="M 20 0 H 90 V 10 H 20 Z M 20 10 H 30 V 30 H 20 Z M 40 10 H 70 V 30 H 40 Z M 80 10 H 90 V 30 H 80 Z M 20 30 H 90 V 40 H 20 Z M 0 40 H 110 V 60 H 0 Z M 20 60 H 90 V 70 H 20 Z M 20 70 H 30 V 90 H 20 Z M 40 70 H 50 V 90 H 40 Z M 60 70 H 70 V 90 H 60 Z M 80 70 H 90 V 90 H 80 Z" />
           </svg>
         </motion.div>
 
@@ -366,8 +378,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="min-h-screen py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative overflow-hidden">
+      {/* About Section Wrapper */}
+      <div id="about">
+        {/* MOBILE & TABLET: Original Bento Box Design */}
+        <section className="block lg:hidden min-h-screen py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative overflow-hidden">
 
         {/* Background "ABOUT" Text */}
         <div className="absolute top-10 md:top-20 left-1/2 -translate-x-1/2 text-[12rem] md:text-[25rem] font-sans font-black text-transparent opacity-[0.03] dark:opacity-10 pointer-events-none tracking-tighter" style={{ WebkitTextStroke: "2px currentColor" }}>
@@ -524,7 +538,13 @@ export default function Home() {
 
           </div>
         </div>
-      </section>
+        </section>
+        
+        {/* DESKTOP: Vending Machine Playground */}
+        <div className="hidden lg:block">
+          <VendingMachineAbout />
+        </div>
+      </div>
 
       {/* Projects Section */}
       <section id="projects" ref={projectsRef} className="py-16 md:py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative">
@@ -548,6 +568,7 @@ export default function Home() {
             Selection of projects across branding, product design, and visual systems.
           </motion.p>
         </div>
+
 
         {/* The Animated Route SVG Canvas */}
         <div className="absolute inset-0 top-[350px] bottom-[150px] left-0 right-0 w-full h-[calc(100%-500px)] pointer-events-none hidden md:block">
