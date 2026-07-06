@@ -16,7 +16,8 @@ export default function ReceiptContact() {
 
   // Auto-resize textarea
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setForm({ ...form, message: e.target.value });
+    const val = e.target.value;
+    setForm(prev => ({ ...prev, message: val }));
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
@@ -170,7 +171,7 @@ export default function ReceiptContact() {
                   <input 
                     type="text" 
                     value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    onChange={(e) => setForm(prev => ({ ...prev, name: e.target.value }))}
                     placeholder="ENTER NAME"
                     className="bg-transparent border-none focus:outline-none focus:ring-0 px-0 text-lg font-bold text-black placeholder:text-black/20"
                     disabled={isSent || isPrinting || isSubmitting}
@@ -183,7 +184,7 @@ export default function ReceiptContact() {
                   <input 
                     type="email" 
                     value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onChange={(e) => setForm(prev => ({ ...prev, email: e.target.value }))}
                     placeholder="ENTER EMAIL"
                     className="bg-transparent border-none focus:outline-none focus:ring-0 px-0 text-lg font-bold text-black placeholder:text-black/20"
                     disabled={isSent || isPrinting || isSubmitting}
