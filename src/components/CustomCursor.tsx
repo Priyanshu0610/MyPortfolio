@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface StampData {
   id: number;
@@ -17,6 +18,12 @@ export default function CustomCursor() {
   const [isHoveringGrabbable, setIsHoveringGrabbable] = useState(false);
   const [stamps, setStamps] = useState<StampData[]>([]);
   const [isClient, setIsClient] = useState(false);
+  const pathname = usePathname();
+
+  // Clear stamps when navigating between pages to avoid old stamps stretching the page height
+  useEffect(() => {
+    setStamps([]);
+  }, [pathname]);
 
   useEffect(() => {
     setIsClient(true);

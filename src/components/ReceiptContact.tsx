@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export default function ReceiptContact() {
   const [isSent, setIsSent] = useState(false);
@@ -10,6 +11,7 @@ export default function ReceiptContact() {
   const [submitError, setSubmitError] = useState("");
   const [mounted, setMounted] = useState(false);
   const paperControls = useAnimation();
+  const { playClick, playPrint } = useSoundEffects();
   
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -92,6 +94,7 @@ export default function ReceiptContact() {
     // Wait and reset (Print new receipt)
     setTimeout(() => {
       setIsPrinting(true);
+      playPrint();
       setForm({ name: "", email: "", message: "" });
       setSubmitError("");
       if (textareaRef.current) textareaRef.current.style.height = "100px";

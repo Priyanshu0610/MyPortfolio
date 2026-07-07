@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import StickerPhysics from "@/components/StickerPhysics";
 import VendingMachineAbout from "@/components/VendingMachineAbout";
+import AvatarTransition from "@/components/AvatarTransition";
 import Link from "next/link";
 
 import { projects } from "@/data/projects";
@@ -26,6 +27,7 @@ const philosophyWords = "Designing experiences that help brands grow through".sp
 export default function Home() {
   const container = useRef(null);
   const projectsRef = useRef(null);
+  const headingRef = useRef(null);
   const [hoveredDiscipline, setHoveredDiscipline] = useState<number | null>(null);
 
   const { scrollYProgress: projectsScrollProgress } = useScroll({
@@ -39,6 +41,13 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001
   });
+
+  // Track scroll specifically for the heading stroke-to-solid animation
+  const { scrollYProgress: headingScrollProgress } = useScroll({
+    target: headingRef,
+    offset: ["start 80%", "end 50%"]
+  });
+  const headingClipPath = useTransform(headingScrollProgress, [0, 1], ["inset(-10% 100% -10% -10%)", "inset(-10% -10% -10% -10%)"]);
 
   const disciplineGraphics = [
     // 0: Landing Pages
@@ -168,8 +177,9 @@ export default function Home() {
 
       </section>
 
-      {/* 4+ Years Section */}
-      <section ref={section4YearsRef} className="min-h-screen w-full bg-[#202020] flex flex-col items-center justify-center relative overflow-hidden pointer-events-none">
+      {/* Epic Avatar Scroll Transition (Now includes 1+ Years section as children) */}
+      <AvatarTransition>
+        <div className="relative w-full h-full bg-[#202020] flex flex-col items-center justify-center overflow-hidden pointer-events-none">
 
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)", backgroundSize: "32px 32px", backgroundPosition: "center center" }} />
@@ -252,7 +262,8 @@ export default function Home() {
             visuals that hold up
           </motion.h2>
         </div>
-      </section>
+        </div>
+      </AvatarTransition>
 
       {/* Role Tags Section */}
       <section className="py-24 w-full overflow-hidden bg-background relative flex flex-col gap-6 pointer-events-none">
@@ -546,18 +557,24 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Projects Section */}
       <section id="projects" ref={projectsRef} className="py-16 md:py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative">
-        <div className="text-center mb-16 md:mb-32 overflow-hidden relative z-10">
-          <motion.h2
-            initial={{ y: "100%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-playfair font-black mb-6 uppercase"
-          >
-            Curated Journey
-          </motion.h2>
+        <div className="text-center mb-16 md:mb-32 relative z-10">
+          <div ref={headingRef} className="relative inline-block mb-6 pr-4">
+            {/* The Transparent Stroked Background Text */}
+            <h2 
+              className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-transparent" 
+              style={{ WebkitTextStroke: '2px var(--foreground)' }}
+            >
+              Curated Journey
+            </h2>
+            {/* The Solid Text That Wipes Across */}
+            <motion.h2
+              style={{ clipPath: headingClipPath }}
+              className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-foreground absolute top-0 left-0 whitespace-nowrap"
+            >
+              Curated Journey
+            </motion.h2>
+          </div>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
