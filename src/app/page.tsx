@@ -95,14 +95,7 @@ export default function Home() {
     offset: ["start start", "end end"]
   });
 
-  const section4YearsRef = useRef(null);
-  const { scrollYProgress: sectionScrollProgress } = useScroll({
-    target: section4YearsRef,
-    offset: ["start center", "end center"]
-  });
 
-  // Animate path length from 0 to 1 as the section scrolls through the middle of the screen
-  const pathLengthAnim = useTransform(sectionScrollProgress, [0, 1], [0, 1]);
 
   return (
     <main ref={container} className="relative min-h-screen">
@@ -199,7 +192,9 @@ export default function Home() {
               stroke="#efebe2"
               strokeWidth="6"
               strokeLinecap="round"
-              style={{ pathLength: pathLengthAnim }}
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
           </svg>
         </div>
