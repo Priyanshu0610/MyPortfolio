@@ -351,7 +351,7 @@ export default function Home() {
   });
 
   return (
-    <main ref={container} className="relative min-h-screen">
+    <main ref={container} className="relative min-h-screen overflow-x-hidden">
       <Preloader />
 
       {/* Hero Section */}
@@ -1101,7 +1101,7 @@ export default function Home() {
           <div ref={headingRef} className="relative inline-block mb-6 pr-4">
             {/* The Transparent Stroked Background Text */}
             <h2
-              className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-transparent"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-transparent whitespace-nowrap"
               style={{ WebkitTextStroke: "2px var(--foreground)" }}
             >
               Curated Journey
@@ -1109,7 +1109,7 @@ export default function Home() {
             {/* The Solid Text That Wipes Across */}
             <motion.h2
               style={{ clipPath: headingClipPath }}
-              className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-foreground absolute top-0 left-0 whitespace-nowrap"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair font-black uppercase text-foreground absolute top-0 left-0 whitespace-nowrap"
             >
               Curated Journey
             </motion.h2>
