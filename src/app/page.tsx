@@ -351,7 +351,7 @@ export default function Home() {
   });
 
   return (
-    <main ref={container} className="relative min-h-screen overflow-x-hidden">
+    <main ref={container} className="relative min-h-screen">
       <Preloader />
 
       {/* Hero Section */}
@@ -699,7 +699,7 @@ export default function Home() {
       {/* Philosophy Section */}
       <section
         id="philosophy"
-        className="min-h-[100vh] flex flex-col md:flex-row items-center justify-between px-10 md:px-24 py-32 max-w-[1600px] mx-auto w-full relative border-t border-black/10 dark:border-white/10"
+        className="min-h-[100vh] flex flex-col md:flex-row items-center justify-between px-10 md:px-24 py-32 max-w-[1600px] mx-auto w-full relative border-t border-black/10 dark:border-white/10 overflow-hidden"
       >
         {/* Left Side: Rotating Badge Graphic */}
         <motion.div className="w-full md:w-1/2 h-[300px] md:h-[500px] flex justify-center items-center mb-20 md:mb-0 relative pointer-events-none">
@@ -1095,9 +1095,9 @@ export default function Home() {
       <section
         id="projects"
         ref={projectsRef}
-        className="py-16 md:py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative"
+        className="py-16 md:py-32 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-black/10 dark:border-white/10 relative overflow-hidden"
       >
-        <div className="text-center mb-16 md:mb-32 relative z-10">
+        <div className="text-center mb-16 md:mb-32 relative z-10 w-full overflow-hidden max-w-[100vw]">
           <div ref={headingRef} className="relative inline-block mb-6 pr-4">
             {/* The Transparent Stroked Background Text */}
             <h2

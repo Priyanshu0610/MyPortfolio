@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type ProductCode = "A1" | "A2" | "B1" | "B2" | null;
@@ -28,7 +28,7 @@ const products: Record<string, Product> = {
     ),
     content: (
       <div className="space-y-4 font-mono text-black">
-        <p>I'm <strong className="text-black">Priyanshu Raj</strong>, a Frontend Developer and BCA student at Sarala Birla University in Ranchi.</p>
+        <p>I&apos;m <strong className="text-black">Priyanshu Raj</strong>, a Frontend Developer and BCA student at Sarala Birla University in Ranchi.</p>
         <p>I specialize in crafting visually stunning, responsive, and performance-optimized user interfaces.</p>
         <p>Most recently, I expanded my technical horizons through an AI Web Development Internship with the Inamigos Foundation.</p>
       </div>
@@ -115,6 +115,7 @@ export default function VendingMachineAbout() {
   const [isDispensing, setIsDispensing] = useState(false);
   const [viewingItem, setViewingItem] = useState<ProductCode>(null);
   const [errorMsg, setErrorMsg] = useState("");
+  const [dropRotation, setDropRotation] = useState(0);
 
   const handleKeyPress = (key: string) => {
     if (isDispensing || viewingItem) return;
@@ -134,6 +135,8 @@ export default function VendingMachineAbout() {
         // Dispense!
         setIsDispensing(true);
         setInputCode("WAIT");
+        // eslint-disable-next-line react-hooks/purity
+        setDropRotation(Math.random() * 90 - 45);
         
         // Wait for drop animation
         setTimeout(() => {
@@ -217,7 +220,7 @@ export default function VendingMachineAbout() {
             <AnimatePresence>
               {isDispensing && (
                 <motion.div
-                  initial={{ y: -300, rotate: Math.random() * 90 - 45 }}
+                  initial={{ y: -300, rotate: dropRotation }}
                   animate={{ y: 0, rotate: 0 }}
                   transition={{ type: "spring", bounce: 0.5, duration: 1.5 }}
                   className="absolute"

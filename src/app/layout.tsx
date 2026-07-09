@@ -60,6 +60,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col font-sans">
         <SmoothScroll>

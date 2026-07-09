@@ -9,6 +9,7 @@ export function useSoundEffects() {
   const initAudio = useCallback(() => {
     if (typeof window === "undefined") return null;
     if (!audioCtxRef.current) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
     }
     if (audioCtxRef.current.state === "suspended") {
