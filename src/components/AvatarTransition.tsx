@@ -69,7 +69,7 @@ export default function AvatarTransition({ children }: { children?: React.ReactN
             {/* Photo Container */}
             <motion.div className="flex flex-col items-center justify-start bg-[#f8f8f8] p-4 pb-16 shadow-[0_30px_60px_rgba(0,0,0,0.8)] border border-black/10 rounded-sm w-full">
               {/* Inner Photo Frame */}
-              <motion.div className="w-[60vw] md:w-[30vw] aspect-[3/4] relative overflow-hidden bg-black/5 rounded-sm">
+              <motion.div className="w-[80vw] md:w-[30vw] aspect-[3/4] relative overflow-hidden bg-black/5 rounded-sm">
                 <img 
                   src="/pexels-introspectivedsgn-7248316.jpg" 
                   alt="Priyanshu Portrait"

@@ -19,6 +19,9 @@
   --font-bebas: var(--font-bebas);
 }
 
+/* Disable dark mode on mobile screens (<768px) */
+@custom-variant dark (@media (prefers-color-scheme: dark) and (min-width: 768px));
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -30,9 +33,11 @@ body {
   overflow-x: hidden;
 }
 
-/* 1. Force custom cursor globally (Beats browser UA styles because of !important, but loses to classes because * has 0 specificity) */
-* {
-  cursor: none !important;
+/* 1. Force custom cursor globally only on devices with a mouse */
+@media (hover: hover) {
+  * {
+    cursor: none !important;
+  }
 }
 
 /* 2. Restore native system cursors exclusively inside no-stamp zones (like the Footer) */

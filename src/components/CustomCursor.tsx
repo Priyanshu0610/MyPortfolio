@@ -26,6 +26,11 @@ export default function CustomCursor() {
   }, [pathname]);
 
   useEffect(() => {
+    // Check if the device is a touchscreen/mobile device
+    if (window.matchMedia("(hover: none)").matches) {
+      return;
+    }
+
     setIsClient(true);
     
     const updateMousePosition = (e: MouseEvent) => {
